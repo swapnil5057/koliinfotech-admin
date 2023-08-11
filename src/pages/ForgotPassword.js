@@ -8,7 +8,7 @@ import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
-const Login = () => {
+const ForgotPassword = () => {
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -63,7 +63,7 @@ const Login = () => {
                     <img src="assets/layout/images/koli-logo.png" alt="logo" style={{ width: "65%" }} />
                 </div>
 
-                <h3 className="text-center mb-8">LOG IN</h3>
+                <h3 className="text-center mb-8">Forgot Password</h3>
                 <form onSubmit={handleSubmit} className="p-fluid">
                     <div className="formgrid grid">
                         <div className="field col">
@@ -86,25 +86,7 @@ const Login = () => {
 
                     <div className="formgrid grid">
                         <div className="field col">
-                            <label>Enter Password</label>
-                        </div>
-
-                        <div className="field col">
-                            <Password placeholder="Enter password" className={classNames({ "p-invalid": submitted && !data.password })} id="password" name="password" label="password" type="password" value={data.password} onChange={handleChange} toggleMask feedback={false} />
-                            {submitted && !data.password && <small className="p-error">Password is required.</small>}
-                        </div>
-                    </div>
-
-                    <div className="formgrid grid">
-                        <div className="field col">
                             <Button label="Log In" loading={isLoading} icon="pi pi-check" className="p-button-success mr-2 mb-2" />
-                        </div>
-                    </div>
-                    <div className="formgrid grid">
-                        <div className="field col" style={{ display: "flex" }}>
-                            <Link to="/ForgotPassword">
-                                <p style={{ marginLeft: 5 }}>Forgot Password</p>
-                            </Link>
                         </div>
                     </div>
                     <div className="formgrid grid">
@@ -121,4 +103,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default ForgotPassword;
