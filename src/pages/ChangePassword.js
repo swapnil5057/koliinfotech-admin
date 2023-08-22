@@ -3,7 +3,6 @@ import { Password } from 'primereact/password';
 import classNames from 'classnames';
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { adminChangePasswordStart } from '../redux/Actions/actions';
 import { Button } from 'primereact/button';
 
 const ChangePassword = () => {
@@ -35,7 +34,7 @@ const ChangePassword = () => {
             newPassword: data.newPassword,
             confirmPassword: data.confirmPassword
         };
-        dispatch(adminChangePasswordStart(adminChangePass));
+        // dispatch(adminChangePasswordStart(adminChangePass));
     }
 
     if (users.length > 0) {

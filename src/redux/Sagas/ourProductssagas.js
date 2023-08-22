@@ -71,9 +71,7 @@ export function* onaddOurProductStartAsync({ payload }) {
 // ----------------------------------------------------------------
 export function* onDeleteOurProductStartAsync({ payload }) {
     try {
-        console.log('delete product! payload~~~~~~~>', payload)
         const response = yield call(deleteProductApi, payload)
-        console.log('delete product!~~~~~~~>', response)
         if (response.status === 200) {
             yield put(deleteOurProductSuccess(response.data));
             Toast.fire({
@@ -98,7 +96,6 @@ export function* onDeleteOurProductStartAsync({ payload }) {
 export function* onUpdateOurProducttartAsync({ payload }) {
     try {
         const response = yield call(updateProductApi, payload)
-        console.log('update product response~~~~~>',response)
         if (response.status === 200) {
             yield put(updateOurProductSuccess(response.data));
             Toast.fire({

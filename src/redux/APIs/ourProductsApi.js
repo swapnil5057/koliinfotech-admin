@@ -19,6 +19,3 @@ export const addOurProductApi = async (newProduct) => await axios.post(`${baseUr
 export const deleteProductApi = async (deleteProduct) => await axios.delete(`${baseUrl}ourProduct/${deleteProduct}/`, { headers: headersParam });
 
 export const updateProductApi = async (updateOurProduct) => await axios.put(`${baseUrl}ourProduct/${updateOurProduct.get("id")}`, updateOurProduct, { headers: headersParam });
-
-
-

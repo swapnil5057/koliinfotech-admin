@@ -28,7 +28,6 @@ const OurProducts = () => {
     const [pageNo, setPageNo] = useState(1)
     const OurProductsSelectorData = useSelector((state) => state?.productsDetail);
     const OurProducts=OurProductsSelectorData?.OurProducts?.data?.data?.rows
-    console.log("!Q~~~~~~~~~~~~~~~~~",OurProductsSelectorData)
     const isSuccess = OurProductsSelectorData?.isSuccess;
     const isLoading = OurProductsSelectorData?.isLoading;
 

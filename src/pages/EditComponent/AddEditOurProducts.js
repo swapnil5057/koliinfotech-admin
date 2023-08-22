@@ -27,9 +27,9 @@ const AddEditOurProducts = () => {
     const [mediaError, setMediaError] = useState(false);
     const ServiceSelector = useSelector((state) => state?.serviceData)
     const ProductSelector = useSelector((state) => state?.productsDetail)
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~>>>>>', ProductSelector)
     const ServiceData = ServiceSelector?.OurServices?.data?.data?.rows;
     const ProductsData = ProductSelector?.OurProducts?.data?.data?.rows;
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~>>>>> ', ProductsData)
     const isSucess = ProductSelector?.isSuccess;
     const isLoading = ProductSelector?.isLoading;
 
@@ -134,7 +134,7 @@ const AddEditOurProducts = () => {
                         <label htmlFor="name">Select Service</label>
                         <Dropdown id="description" value={ourProduct?.our_service_id} onChange={(e) => onInputChange(e, "our_service_id")} className={classNames({ "p-invalid": submitted && !ourProduct.our_service_id })} required
                             options={ProductsData}
-                            optionValue="id"
+                            optionValue="our_service_id"
                             placeholder="Choose a Service"
                             optionLabel="title"> </Dropdown>
                         {submitted && !ourProduct.our_service_id && <small className="p-error">Please Select Service.</small>}

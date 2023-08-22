@@ -8,7 +8,6 @@ import {
     deleteUsersSuccess, deleteUsersError,
     getSingleUsersSuccess, getSingleUsersError,
     userRegisterSuccess, userRegisterError,
-    countStartSuccess, countStartError,
     userUpdateSuccess, userUpdateError,    
 } from "../Actions/actions";
 
@@ -17,7 +16,6 @@ import {
         adminLoginApi, 
         deleteUsersApi, 
         getSingleUserApi, 
-        countApi, 
         userRegisterApi,
         updateUserApi,
          } from "../APIs/api";
@@ -38,17 +36,6 @@ export function* onLoadUsersStartAsync() {
         }
     } catch (error) {
         yield put(loadUsersError(error));
-    }
-}
-// ----------------------------------------------------------------
-export function* onCountStartAsync() {
-    try {
-        const response = yield call(countApi);
-        if (response.status === 200) {
-            yield put(countStartSuccess(response));
-        }
-    } catch (error) {
-        yield put(countStartError(error));
     }
 }
 // ----------------------------------------------------------------
@@ -185,9 +172,6 @@ export function* onUserUpdate() {
 export function* onLoadUsers() {
     yield takeLatest(types.LOAD_USERS_START, onLoadUsersStartAsync);
 }
-export function* onCount() {
-    yield takeLatest(types.COUNT_START, onCountStartAsync);
-}
 
 export function* onGetSingleUsers() {
     yield takeLatest(types.GET_SINGLE_USERS_START, onSigleUsersStartAsync);
@@ -204,7 +188,6 @@ const userSagas = [
     fork(onGetSingleUsers),
     fork(onDeleteUsers),
     fork(onUserRegiterStart),
-    fork(onCount),
 ];
 
 export default function* userSaga() {

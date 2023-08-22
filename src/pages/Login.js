@@ -102,16 +102,14 @@ const Login = () => {
                     </div>
                     <div className="formgrid grid">
                         <div className="field col" style={{ display: "flex" }}>
-                            <Link to="/ForgotPassword">
-                                <p style={{ marginLeft: 5 }}>Forgot Password</p>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="formgrid grid">
-                        <div className="field col" style={{ display: "flex" }}>
                             <p>New User?</p>
                             <Link to="/register">
                                 <p style={{ marginLeft: 5 }}>Sign Up</p>
+                            </Link>
+                        </div>
+                        <div className="field col" style={{ display: "flex" }}>
+                            <Link to="/changePassword">
+                                <p style={{ marginLeft: 5 }}>Forgot Password</p>
                             </Link>
                         </div>
                     </div>

@@ -19,59 +19,30 @@ import Dashboard from "./Dashboard";
 import Users from "./menu/User";
 import OurServices from "./menu/OurServices";
 import OurProduct from "./menu/OurProduct";
+import OurClients from "./menu/OurClients";
+import OurTopBlogs from "./menu/OurTopBlogs";
+import OurEmployees from "./menu/OurEmployees";
+import OurOpenings from "./menu/OurOpenings";
+import ContactUs from "./menu/ContactUs";
 // -----------------------------------Single data page-------------------------------------------
 import SinglrUsers from "../pages/SingleViews/SingleUser"
 import SingleService from "../pages/SingleViews/SingleService";
 import SingleProduct from "../pages/SingleViews/SingleProduct";
+import SingleClient from "../pages/SingleViews/SingleClient";
+import SingleBlog from "../pages/SingleViews/SingleBlog";
+import SingleEmployee from "../pages/SingleViews/SingleEmployee";
+import SingleOpening from "../pages/SingleViews/SingleOpening";
+import SingleContact from "../pages/SingleViews/SingleContact";
+import SingleAppliedForJob from "../pages/SingleViews/SingleAppliedForJob";
 // -----------------------------------Add Edit page----------------------------------------------
 import AddUser from "../pages/EditComponent/AddUser";
 import AddEditOurServices from "../pages/EditComponent/AddEditOurService";
 import AddEditOurProducts from "../pages/EditComponent/AddEditOurProducts";
-// import AddEditOurServices from "../pages/EditComponent/AddEditOurService";
-// import SingleMedia from "../pages/SingleViews/SingleMedia";
-// import SingleBanner from "../pages/SingleViews/SingleBanner";
-// import NewsSingle from "../pages/SingleViews/NewsSingle";
-// import SingleStatusCategory from "../pages/SingleViews/SingleStatusCategory";
-// import SingleStatus from "../pages/SingleViews/SingleStatus";
-// import SingleSuggestionFeedback from "../pages/SingleViews/SingleSuggestionFeedback";
-// import Category from "./menu/Category";
-// import LeaderCornerCategory from "./menu/LeaderCornerCategory";
-// import LeaderCorner from "./menu/LeaderCorner";
-// import Banner from "./menu/Banners";
-// import AddEditCategory from "../pages/EditComponent/AddEditCategory";
-// import AddEditLeaderCornerCategory from "../pages/EditComponent/AddEditLeaderCornerCategory";
-// import AddEditBanner from '../pages/EditComponent/AddEditBanner'
-// import AddPlanCategory from "../pages/EditComponent/AddPlanEditCategory";
-// import Articals from "./menu/Articals";
-// import AddEditArtical from "../pages/EditComponent/AddEditArtical";
-// import News from "./menu/News";
-// import AddEditNews from "../pages/EditComponent/AddEditNews";
-// import Article from "../pages/SingleViews/Article";
-// import StatusCategory from "./menu/StatusCategory";
-// import Status from "./menu/Status";
-// import AddEditStatusCategory from "../pages/EditComponent/AddEditStatusCategory";
-// import AddEditStatus from "../pages/EditComponent/AddEditStatus";
-// import MediaFile from "./menu/MediaFile";
-// import AddEditMediaFile from "../pages/EditComponent/AddEditMediaFile";
-// import ProfileFrame from "./menu/ProfileFrame";
-// import AddEditProfileFrame from "../pages/EditComponent/AddEditProfileFrame";
-// import SingleProfileFrame from "../pages/SingleViews/SingleProfileFrame";
-// import TtpmPdf from "./menu/TtpmPdf";
-// import AddEditTtpmPdf from "../pages/EditComponent/AddEditTtpmPdf";
-// import CatViewAll from "./menu/CatViewAll";
-// import AddEditLeaderCorner from "../pages/EditComponent/AddEditLeaderCorner";
-// import MarketingSms from "./menu/MarketingSms.js";
-// import AddEditMarketingSMS from "../pages/EditComponent/AddEditMarketingSMS";
-// import MixPlanCategory from "./menu/MixPlanCategory";
-// import AddEditMixPlanCategory from "../pages/EditComponent/AddEditMixPlanCategory";
-// import RecentUpoad from "./menu/RecentUpoad"
-// import AdminBanner from "./menu/AdminBanner";
-// import addEditAdminBaner from "../pages/EditComponent/AddEditAdminBanner";
-// import SuggestionFeedback from "./menu/SuggestionFeedback";
-// import MixPlan from "./menu/MixPlan";
-// import AddEditMixPlan from "../pages/EditComponent/AddEditmixPlan";
-// import YoutubeLinks from "./menu/YoutubeLinks";
-// import AddEditYoutubeLink from "../pages/EditComponent/AddEditYoutubeLink";
+import AddEditOurClients from "../pages/EditComponent/AddClient";
+import AddEditOurTopBlog from "../pages/EditComponent/AddEditOurTopBlogs";
+import AddEditOurEmployee from "../pages/EditComponent/AddEditOurEmployee";
+import AddEditOuropenings from "../pages/EditComponent/AddEditOuropenings";
+import AppliedForJob from "./menu/AppliedForJob";
 
 const AdminDashboard = () => {
     const [layoutMode, setLayoutMode] = useState("static");
@@ -155,7 +126,7 @@ const AdminDashboard = () => {
     };
 
     const menu = [
-        {
+        { 
             label: "Dashboard",
             items: [
                 {
@@ -169,10 +140,15 @@ const AdminDashboard = () => {
             label: "Menu Hierarchy",
             icon: "pi pi-fw pi-search",
             items: [
-                { label: "USERS INFO", icon: "pi pi-fw pi-users", to: "/admindashboard/users-list" },
+                { label: "USERS INFO", icon: "pi pi-fw pi-user-edit", to: "/admindashboard/users-list" },
+                { label: "OUR EMPLOYEES", icon: "pi pi-fw pi-users", to: "/admindashboard/OurEmployees-list" },
+                { label: "OUR CLIENTS", icon: "pi pi-fw pi-users", to: "/admindashboard/ourClients-list" },
                 { label: "OUR SERVICES", icon: "pi pi-fw pi-id-card", to: "/admindashboard/our-services-list" },
                 { label: "OUR PRODUCTS", icon: "pi pi-fw pi-inbox", to: "/admindashboard/our-products-list" },
-                // { label: "MEDIA", icon: "pi pi-fw pi-step-forward-alt", to: "/admindashboard/media-list" },
+                { label: "OUR TOP BLOGS", icon: "pi pi-fw pi-list", to: "/admindashboard/ourOurTopBlogs-list" },
+                { label: "OUR OPENINGS", icon: "pi pi-fw pi-comments", to: "/admindashboard/ourOurOpenings-list" },
+                { label: "APPLIED FOR JOB", icon: "pi pi-fw pi-briefcase", to: "/admindashboard/AppliedForJob-list" },
+                { label: "CONTACT US PAGE", icon: "pi pi-fw pi-users", to: "/admindashboard/contactUs-list" },
                 // { label: "TTPM PDF", icon: "pi pi-fw pi-file-pdf", to: "/admindashboard/ttpmp-df-list" },
                 // {
                 //     label: "BANNERS",
@@ -186,44 +162,6 @@ const AdminDashboard = () => {
                 //         },
                 //     ]
                 // },
-                // {
-                //     label: "LEADERS",
-                //     icon: "pi pi-fw pi-sitemap",
-                //     items: [
-                //         {
-                //             label: "LEADERS CATEGORY", icon: "pi pi-fw pi-list", to: "/admindashboard/leader-category-list",
-                //         },
-                //         {
-                //             label: "LEADERS CORNER", icon: "pi pi-fw pi-qrcode", to: "/admindashboard/leader-corner-list"
-                //         },
-                //     ]
-                // },
-                // { label: "MARKETING SMS", icon: "pi pi-fw pi-envelope", to: "/admindashboard/marketing-sms-list" },
-                // { label: "SUGGESTION FEEDBACK", icon: "pi pi-fw pi-check-square", to: "/admindashboard/suggestion-feedback" },
-                // // { label: "MIX PLAN", icon: "pi pi-fw pi-clone", to: "/admindashboard/mix-plan" },
-                // {
-                //     label: "ARTICALS/NEWS",
-                //     icon: "pi pi-fw pi-table",
-                //     items: [
-                //         {
-                //             label: "ARTICLES", icon: "pi pi-fw pi-list", to: "/admindashboard/articles-list",
-                //             label: "ARTICLES",
-                //             icon: "pi pi-fw pi-list",
-                //             to: "/admindashboard/articles-list",
-                //         },
-                //         {
-                //             label: "NEWS",
-                //             icon: "pi pi-fw pi-flag-fill",
-                //             to: "/admindashboard/news-list",
-                //         },
-
-                //     ],
-                // },
-                // { label: "STATUS", icon: "pi pi-fw pi-list", to: "/admindashboard/status-list" },
-
-                // { label: "ADMIN BANNERS", icon: "pi pi-fw pi-images", to: "/admindashboard/adminBanner-list" },
-
-                // { label: "Youtube Links", icon: "pi pi-fw pi-youtube", to: "/admindashboard/youtube-links" },
             ],
         },
     ];
@@ -260,79 +198,38 @@ const AdminDashboard = () => {
                     <Route path="/admindashboard/users-list" component={Users} />
                     <Route path="/admindashboard/our-services-list" component={OurServices} />
                     <Route path="/admindashboard/our-products-list" component={OurProduct} />
+                    <Route path="/admindashboard/ourClients-list" component={OurClients} />
+                    <Route path="/admindashboard/ourOurTopBlogs-list" component={OurTopBlogs} />
+                    <Route path="/admindashboard/OurEmployees-list" component={OurEmployees} />
+                    <Route path="/admindashboard/ourOurOpenings-list" component={OurOpenings} />
+                    <Route path="/admindashboard/contactUs-list" component={ContactUs} />
+                    <Route path="/admindashboard/AppliedForJob-list" component={AppliedForJob} />
                     {/* -----------------------------------Single data page------------------------------------------- */}
                     <Route path="/singleusers/:id" component={SinglrUsers} />
                     <Route path="/serviceSingle/:id/" component={SingleService} />
                     <Route path="/productSingle/:id/" component={SingleProduct} />
-                    {/* -----------------------------------Add Edit page---------------------------------------------- */}
+                    <Route path="/singleClient/:id/" component={SingleClient} />
+                    <Route path="/singleBlog/:id/" component={SingleBlog} />
+                    <Route path="/singleEmployee/:id/" component={SingleEmployee} />
+                    <Route path="/SingleOpening/:id/" component={SingleOpening} />
+                    <Route path="/SingleContact/:id/" component={SingleContact} />
+                    <Route path="/SingleAppliedForJob/:id/" component={SingleAppliedForJob} />
+                    {/* -----------------------------------Add page---------------------------------------------- */}
                     <Route path="/addnew-ourService" component={AddEditOurServices} />
                     <Route path="/addnew-user" component={AddUser} />
+                    <Route path="/addnew-client" component={AddEditOurClients} />
+                    <Route path="/addnew-our-products" component={AddEditOurProducts} />
+                    <Route path="/addnew-our-blog" component={AddEditOurTopBlog} />
+                    <Route path="/addnew-our-employee" component={AddEditOurEmployee} />
+                    <Route path="/addnew-opening" component={AddEditOuropenings} />
+                    {/* -----------------------------------Edit page---------------------------------------------- */}
                     <Route path="/update-our-servive/:id" component={AddEditOurServices} />
                     <Route path="/update-user/:id" component={AddUser} />
-                    <Route path="/addnew-our-products" component={AddEditOurProducts} />
+                    <Route path="/update-client/:id" component={AddEditOurClients} />
                     <Route path="/update-our-product/:id" component={AddEditOurProducts} />
-                    {/* <Route path="/singleBanner/:id" component={SingleBanner} /> */}
-                    {/* <Route path="/news/:id" component={NewsSingle} /> */}
-                    {/* <Route path="/status-category/:id" component={SingleStatusCategory} /> */}
-                    {/* <Route path="/status/:id" component={SingleStatus} /> */}
-                    {/* <Route path="/media/:id" component={SingleStatus} /> */}
-                    {/* <Route path="/suggestion-feedback/:id" component={SingleSuggestionFeedback} /> */}
-                    {/* <Route path="/update-ttpmpdf/:id" component={AddEditTtpmPdf} />
-                    <Route path="/addnew-ttpmpdf/" component={AddEditTtpmPdf} />
-                    <Route path="/addnew-plancategory" component={AddPlanCategory} />
-                    <Route path="/update-plancategory/:id" component={AddPlanCategory} /> */}
-                    {/* <Route path="/addnew-news" component={AddEditNews} />
-                    <Route path="/update-news/:id" component={AddEditNews} /> */}
-                    {/* <Route path="/addnew-status" component={AddEditStatus} />
-                    <Route path="/update-status/:id" component={AddEditStatus} /> */}
-                    {/* <Route path="/add-mix-plan-category" component={AddEditMixPlanCategory} />
-                    <Route path="/update-mix-plan-category/:id/" component={AddEditMixPlanCategory} /> */}
-                    {/* <Route path="/add-youtube-links" component={AddEditYoutubeLink} />
-                    <Route path="/edit-youtube-links/:id/" component={AddEditYoutubeLink} /> */}
-                    {/* <Route path="/addnew-media" component={AddEditMediaFile} />
-                    <Route path="/update-media/:id" component={AddEditMediaFile} /> */}
-                    {/* <Route path="/add-leader-corner" component={AddEditLeaderCorner} />
-                    <Route path="/update-leader-corner/:id" component={AddEditLeaderCorner} /> */}
-                    {/* <Route path="/add-marketing-sms" component={AddEditMarketingSMS} />
-                    <Route path="/update-marketing-sms/:id" component={AddEditMarketingSMS} /> */}
-                    {/* <Route path="/addnew-adminBanner/" component={addEditAdminBaner} />
-                    <Route path="/update-admin-banner/:id" component={addEditAdminBaner} /> */}
-                    {/* <Route path="/add-mix-plan" component={AddEditMixPlan} />
-                    <Route path="/edit-mix-plan/:id/" component={AddEditMixPlan} /> */}
-                    {/* <Route path="/admindashboard/mix-plan" component={MixPlan} /> */}
-                    {/* <Route path="/admindashboard/ttpmp-df-list" component={TtpmPdf} /> */}
-                    {/* <Route path="/admindashboard/categories-list" component={Category} /> */}
-                    {/* <Route path="/admindashboard/banners-list" component={Banner} /> */}
-                    {/* <Route path="/admindashboard/articles-list" component={Articals} /> */}
-                    {/* <Route path="/addnew-article" component={AddEditArtical} />
-                    <Route path="/update-article/:id" component={AddEditArtical} /> */}
-                    {/* <Route path="/article/:id" component={Article} /> */}
-                    {/* <Route path="/admindashboard/news-list" component={News} /> */}
-                    {/* <Route path="/addnew-category" component={AddEditCategory} />
-                    <Route path="/update-category/:id/" component={AddEditCategory} /> */}
-                    {/* <Route path="/admindashboard/status-list-categories" component={StatusCategory} /> */}
-                    {/* <Route path="/addnew-status-category" component={AddEditStatusCategory} />
-                    <Route path="/update-statuscategory/:id" component={AddEditStatusCategory} /> */}
-                    {/* <Route path="/admindashboard/status-list" component={Status} /> */}
-                    {/* <Route path="/admindashboard/leader-category-list" component={LeaderCornerCategory} />
-                    <Route path="/add-leader-category/" component={AddEditLeaderCornerCategory} />
-                    <Route path="/update-leader-category/:id/" component={AddEditLeaderCornerCategory} />
-                    <Route path="/admindashboard/leader-corner-list" component={LeaderCorner} /> */}
-                    {/* <Route path="/admindashboard/media-list" component={MediaFile} /> */}
-                    {/* <Route path="/add-banner" component={AddEditBanner} /> */}
-                    {/* <Route path="/addnew-profile-frame-list" component={AddEditProfileFrame} /> */}
-                    {/* <Route path="/update-profile-frame/:id" component={AddEditProfileFrame} /> */}
-                    {/* <Route path="/profile-frame/:id" component={SingleProfileFrame} /> */}
-                    {/* <Route path="/update-banner/:id" component={AddEditBanner} /> */}
-                    {/* <Route path="/viewAll-banner/:id" component={CatViewAll} />
-                    <Route path="/edit-banner/:id" component={AddEditBanner} />
-                    <Route path="/update-banner/:id" component={AddEditBanner} /> */}
-                    {/* <Route path="/admindashboard/marketing-sms-list" component={MarketingSms} /> */}
-                    {/* <Route path="/admindashboard/mix-plan-category" component={MixPlanCategory} /> */}
-                    {/* <Route path="/admindashboard/recentbanner-list" component={RecentUpoad} /> */}
-                    {/* <Route path="/admindashboard/adminBanner-list" component={AdminBanner} /> */}
-                    {/* <Route path="/admindashboard/suggestion-feedback" component={SuggestionFeedback} /> */}
-                    {/* <Route path="/admindashboard/youtube-links" component={YoutubeLinks} /> */}
+                    <Route path="/update-our-blog/:id" component={AddEditOurTopBlog} />
+                    <Route path="/update-our-employee/:id" component={AddEditOurEmployee} />
+                    <Route path="/update-Opening/:id" component={AddEditOuropenings} />
                 </div>
                 <AppFooter />
             </div >

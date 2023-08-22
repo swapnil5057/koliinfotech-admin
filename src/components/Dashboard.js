@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { countStart, loadUsersStart } from "../redux/Actions/actions";
-import Banner from '../assets/demo/Images/WhoWeAreImage-1.png'
+import Banner from '../assets/demo/Images/WhoWeAreImage-1.png';
+import banner2 from '../assets/demo/Images/koli-logo.png';
+// import banner3 from '../assets/demo/Images/KOLI-profile';
 
 const Dashboard = (props) => {
     const dispatch = useDispatch();
     const [lineOptions, setLineOptions] = useState(null);
     const logindata = useSelector((state) => state);
-    console.log('dashboard logindata~>',logindata)
 
     useEffect(() => {
         dispatch(loadUsersStart());
@@ -136,8 +137,8 @@ const Dashboard = (props) => {
                     {/* </Link> */}
                 </div>
             </div>
-            <div className="card align-items-center justify-content-center flex mt-3">
-                <img src={Banner} alt="Image" className="align-items-center dashboard-banner" style={{ borderRadius: "2%" }} />
+            <div className="card align-items-center justify-content-center flex mt-3" style={{height:'70vh'}}>
+                <img src={banner2} alt="Image" className="align-items-center dashboard-banner" style={{ borderRadius: "2%" }} />
             </div>
 
         </div>

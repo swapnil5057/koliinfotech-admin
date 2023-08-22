@@ -26,5 +26,3 @@ export const deleteUsersApi = async (deleteuser) => await axios.delete(`${baseUr
 export const getSingleUserApi = async (singluser) => await axios.get(`${baseUrl}user/${singluser}`, { headers: headersParam });
 
 export const updateUserApi = async (updateUser) => await axios.patch(`${baseUrl}user/${updateUser.get("id")}`, updateUser, { headers: headersParam });
-
-export const countApi = async () => await axios.get(`${baseUrl}counts/`, { headers: headersParam });

@@ -8,52 +8,50 @@ import { Toolbar } from "primereact/toolbar";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { Link } from "react-router-dom";
-import { deleteOurServiceStart, loadOurServicesStart } from "../../redux/Actions/ourServicesActions";
+import { deleteAppliedForJobStart, loadAppliedForJobStart } from "../../redux/Actions/AppliedForJobActions";
 
-const OurServices = () => {
-    let emptyMediaFile = {
-        title: "",
+const AppliedForJob = () => {
+    let emptyContactFile = {
+        yourName: "",
         description: "",
-        image: "",
-        file: "",
-        type_of_av: "",
+        email: "",
+        phone: "",
     };
 
     const dispatch = useDispatch();
     const history = useHistory();
     const dt = useRef(null);
-    const [ourService, setOurService] = useState(emptyMediaFile);
-    const [deleteServiceDialog, setDeleteServiceDialog] = useState(false);
+    const [aplliedJob, setAplliedJob] = useState(emptyContactFile);
+    const [deleteAplliedJobDialog, setDeleteAplliedJobDialog] = useState(false);
     const [globalFilter, setGlobalFilter] = useState(null);
     const [pageNo, setPageNo] = useState(1)
-    const OurServicesSelector = useSelector((state) => state?.serviceData);
-    const OurServices = OurServicesSelector?.OurServices?.data?.data?.rows
-    console.log('OurServices~~~~~~~~~>',OurServices)
-    const OurServicesSelectorData = useSelector((state) => state?.serviceData);
-    const isSuccess = OurServicesSelectorData?.isSuccess;
-    const isLoading = OurServicesSelectorData?.isLoading;
+    const AppliedForJobSelector = useSelector((state) => state?.AppliedForJobDetail);
+    const AppliedForJobData = AppliedForJobSelector?.AppliedForJobList?.data?.data?.rows;
+    console.log('AppliedForJobSelector~~~~~~~~~>',AppliedForJobData)
+    const isSuccess = AppliedForJobSelector?.isSuccess;
+    const isLoading = AppliedForJobSelector?.isLoading;
 
     useEffect(() => {
-        dispatch(loadOurServicesStart());
+        dispatch(loadAppliedForJobStart());
     }, [isSuccess]);
 
     const gotoPrevious = () => {
         history.goBack();
     };
 
-    const hideDeleteServiceDialog = () => {
-        setDeleteServiceDialog(false);
+    const hideDeleteAplliedJobDialog = () => {
+        setDeleteAplliedJobDialog(false);
     };
 
-    const confirmDeleteService = (ourService) => {
-        setOurService(ourService);
-        setDeleteServiceDialog(true);
+    const confirmDeleteAplliedJob = (aplliedJob) => {
+        setAplliedJob(aplliedJob);
+        setDeleteAplliedJobDialog(true);
     };
 
-    const deleteService = () => {
-        setOurService(ourService);
-        dispatch(deleteOurServiceStart(ourService?.id));
-        setDeleteServiceDialog(false);
+    const deleteAplliedJob = () => {
+        setAplliedJob(aplliedJob);
+        dispatch(deleteAppliedForJobStart(aplliedJob?.id));
+        setDeleteAplliedJobDialog(false);
     };
 
     const leftToolbarTemplate = () => {
@@ -78,34 +76,14 @@ const OurServices = () => {
         );
     };
 
-    const cIdBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">File Id</span>
-                {rowData.id}
-            </>
-        );
-    };
-
-    const imageBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">Image</span>
-                <img width={"50"} src={`${rowData.image}`} alt={rowData?.content} />
-            </>
-        )
-    }
 
     const actionBodyTemplate = (rowData) => {
         return (
             <div className="actions">
-                <Link to={`/update-our-servive/${rowData.id}`}>
-                    <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mt-2 mr-2" />
+                <Link to={`/SingleAppliedForJob/${rowData.id}`}>
+                    <Button icon="pi pi-info-circle" className="p-button-rounded p-button-info mt-2 mr-2 ml-5" />
                 </Link>
-                <Link to={`/serviceSingle/${rowData.id}`}>
-                    <Button icon="pi pi-info-circle" className="p-button-rounded p-button-info mt-2 mr-2" />
-                </Link>
-                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mt-2 mr-2" onClick={() => confirmDeleteService(rowData)} />
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mt-2 mr-2 ml-2" onClick={() => confirmDeleteAplliedJob(rowData)} />
             </div>
         );
     };
@@ -124,7 +102,7 @@ const OurServices = () => {
 
     const header = (
         <div className="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-            <h5 className="m-0">List Of Our services</h5>
+            <h5 className="m-0">Applied For Job Candidate's List</h5>
             <span className="block mt-2 md:mt-0 p-input-icon-left">
                 <i className="pi pi-search" />
                 <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Search..." />
@@ -134,8 +112,8 @@ const OurServices = () => {
 
     const deleteMediaFileDialogFooter = (
         <>
-            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={hideDeleteServiceDialog} />
-            <Button label="Yes" icon="pi pi-check" className="p-button-text" onClick={deleteService} />
+            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={hideDeleteAplliedJobDialog} />
+            <Button label="Yes" icon="pi pi-check" className="p-button-text" onClick={deleteAplliedJob} />
         </>
     );
     // const next = () => {
@@ -148,11 +126,11 @@ const OurServices = () => {
         <div className="grid crud-demo">
             <div className="col-12">
                 <div className="card" style={{ margin: "1%" }}>
-                    <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
+                    <Toolbar className="mb-4"  right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}
                         loading={isLoading}
-                        value={OurServices}
+                        value={AppliedForJobData}
                         dataKey="id"
                         paginator
                         rows={5}
@@ -165,17 +143,21 @@ const OurServices = () => {
                         header={header}
                         responsiveLayout="scroll" >
                         <Column body={idBodyTemplate} header="Sr no." headerStyle={{ width: "5%", minWidth: "10rem" }}></Column>
-                        <Column field="title" header="Title" sortable headerStyle={{ width: "10%", minWidth: "20rem" }}></Column>
-                        <Column field="description" header="Description" sortable headerStyle={{ width: "10%", minWidth: "25rem" }}></Column>
-                        <Column field="icon" header="Image" alt='image' body={imageBodyTemplate} headerStyle={{ width: "10%", minWidth: "20rem" }}></Column>
+                        <Column field="first_name" header="First Name" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
+                        <Column field="last_name" header="Last Name" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
+                        <Column field="email" header="Email Add" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
+                        <Column field="phone" header="Location" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
+                        <Column field="current_location" header="Phone No." sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
+                        <Column field="experience" header="Experience" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
+                        <Column field="skills" header="Skills" sortable headerStyle={{ width: "10%", minWidth: "20rem" }}></Column>
                         <Column body={actionBodyTemplate}></Column>
                     </DataTable>
-                    <Dialog visible={deleteServiceDialog} style={{ width: "450px" }} header="Confirm" modal footer={deleteMediaFileDialogFooter} onHide={hideDeleteServiceDialog}>
+                    <Dialog visible={deleteAplliedJobDialog} style={{ width: "450px" }} header="Confirm" modal footer={deleteMediaFileDialogFooter} onHide={hideDeleteAplliedJobDialog}>
                         <div className="flex align-items-center justify-content-center">
                             <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: "2rem" }} />
-                            {ourService && (
+                            {aplliedJob && (
                                 <span>
-                                    Are you sure you want to delete <b>{ourService.title}</b>?
+                                    Are you sure you want to delete <b>{aplliedJob.yourName}</b>?
                                 </span>
                             )}
                         </div>
@@ -190,4 +172,4 @@ const comparisonFn = function (prevProps, nextProps) {
     return prevProps.location.pathname === nextProps.location.pathname;
 };
 
-export default React.memo(OurServices, comparisonFn);
+export default React.memo(AppliedForJob, comparisonFn);
