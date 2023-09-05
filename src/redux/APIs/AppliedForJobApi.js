@@ -7,7 +7,7 @@ const headersParam = {
     Origin: "*",
 };
 
-const baseUrl = "http://192.168.1.16:3000/api/";
+const baseUrl = "https://api-v1.koliinfotech.com/api/";
 // const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const loadAppliedForJobApi = async () => await axios.get(`${baseUrl}applyjob/getAll/`, { headers: headersParam });

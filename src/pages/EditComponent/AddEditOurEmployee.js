@@ -18,10 +18,8 @@ let emptyMediaFile = {
 };
 
 const AddEditOurEmployee = () => {
-    // const [ourProduct, setOurEmployee] = useState(emptyMediaFile);
     const [ourEmployee, setOurEmployee] = useState(emptyMediaFile);
     var { id, firstName, lastName, position, designation, experience, image } = ourEmployee;
-    // var { id, firstName, lastName, position, designation, experience, image } = ourProduct;
     const formData = new FormData();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -31,10 +29,6 @@ const AddEditOurEmployee = () => {
     const [mediaError, setMediaError] = useState(false);
     const EmployeeSelector = useSelector((state) => state?.employeesDetail)
     const EmployeeData=EmployeeSelector?.OurEmployees?.data?.data?.rows
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~>>>>>', ourEmployee)
-    const ProductSelector = useSelector((state) => state?.productsDetail)
-    const ServiceData = EmployeeSelector?.OurServices?.data?.data?.rows;
-    const ProductsData = ProductSelector?.OurProducts?.data?.data?.rows;
     const isSucess = EmployeeSelector?.isSuccess;
     const isLoading = EmployeeSelector?.isLoading;
 

@@ -5,8 +5,6 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Toolbar } from "primereact/toolbar";
 import classNames from "classnames";
-import { RadioButton } from "primereact/radiobutton";
-import { addOurServiceStart,getSingleServiceStart,loadOurServicesStart,updateOurServiceStart } from "../../redux/Actions/ourServicesActions";
 import { addOurBlogStart,updateOurBlogStart } from "../../redux/Actions/OurTopBlogsAction";
 
 let emptyMediaFile = {
@@ -16,7 +14,6 @@ let emptyMediaFile = {
 };
 
 const AddEditOurTopBlog = () => {
-    // const [ourService, setOurBlog] = useState(emptyMediaFile);
     const [ourBlog, setOurBlog] = useState(emptyMediaFile);
     var { id, title, description, image } = ourBlog ;
     const formData = new FormData();
@@ -32,11 +29,6 @@ const AddEditOurTopBlog = () => {
     console.log('blogSelector~~~~~~~~~~',blogData)
     const isSuccess = blogSelector?.isSuccess;
     const isLoading = blogSelector?.isLoading;
-
-    // useEffect(() => {
-    //     dispatch(loadOurServicesStart());
-    //     dispatch(getSingleServiceStart(id))
-    // }, [isSuccess]);
 
     useEffect(() => {
         if (isSuccess === true) {

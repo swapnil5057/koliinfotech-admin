@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { countStart, loadUsersStart } from "../redux/Actions/actions";
-import Banner from '../assets/demo/Images/WhoWeAreImage-1.png';
-import banner2 from '../assets/demo/Images/koli-logo.png';
-// import banner3 from '../assets/demo/Images/KOLI-profile';
+import banner2 from '../assets/demo/Images/03.jpg';
+// import banner from '../assets/demo/Images/team2.png'
+import { loadOurEmployeesStart } from "../redux/Actions/OurEmployeesActions";
+import { loadClintsStart } from "../redux/Actions/OurClintsActions";
 
 const Dashboard = (props) => {
     const dispatch = useDispatch();
     const [lineOptions, setLineOptions] = useState(null);
-    const logindata = useSelector((state) => state);
+    const Employees = useSelector((state) => state?.employeesDetail?.OurEmployees?.data?.data?.count);
+    const Clients = useSelector((state) => state?.clientDetail?.client?.data?.data?.count);
+    console.log('Dashboard Clients~~~~~~~~~>',Clients)
 
     useEffect(() => {
-        dispatch(loadUsersStart());
+        dispatch(loadOurEmployeesStart());
+        dispatch(loadClintsStart());
     }, []);
 
 
@@ -91,50 +94,31 @@ const Dashboard = (props) => {
     return (
         <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
             <div className="grid">
-                <div className="col-12 lg:col-6 xl:col-4">
-                    {/* <Link to="/admindashboard/articles-list"> */}
+                <div className="col-12 lg:col-6 xl:col-6">
                         <div className="card mb-0">
                             <div className="flex justify-content-between mb-3">
                                 <div>
-                                    <span className="block text-500 font-medium mb-3">ARTICALS</span>
-                                    {/* <div className="text-900 font-medium text-xl">{Count?.news_articles_count ? Count?.news_articles_count : 0}</div> */}
+                                    <span className="block text-500 font-medium mb-3">EMPLOYEES</span>
+                                    <div className="text-900 font-medium text-xl">{Employees ?Employees : 0}</div>
                                 </div>
                                 <div className="flex align-items-center justify-content-center bg-purple-100 border-round" style={{ width: "2.5rem", height: "2.5rem" }}>
                                     <i className="pi pi-list text-purple-500 text-xl" />
                                 </div>
                             </div>
                         </div>
-                    {/* </Link> */}
                 </div>
-                <div className="col-12 lg:col-6 xl:col-4">
-                    {/* <Link to="/admindashboard/users-list"> */}
+                <div className="col-12 lg:col-6 xl:col-6">
                         <div className="card mb-0">
                             <div className="flex justify-content-between mb-3">
                                 <div>
-                                    <span className="block text-500 font-medium mb-3">USERS</span>
-                                    {/* <div className="text-900 font-medium text-xl">{Count?.users_count ? Count?.users_count : 0}</div> */}
+                                    <span className="block text-500 font-medium mb-3">CLIENTS</span>
+                                    <div className="text-900 font-medium text-xl">{Clients ? Clients : 0}</div>
                                 </div>
                                 <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{ width: "2.5rem", height: "2.5rem" }}>
                                     <i className="pi pi-users text-blue-500 text-xl" />
                                 </div>
                             </div>
                         </div>
-                    {/* </Link> */}
-                </div>
-                <div className="col-12 lg:col-6 xl:col-4">
-                    {/* <Link to="/admindashboard/categories-list"> */}
-                        <div className="card mb-0">
-                            <div className="flex justify-content-between mb-3">
-                                <div>
-                                    <span className="block text-500 font-medium mb-3">CATEGORY</span>
-                                    {/* <div className="text-900 font-medium text-xl">{Count?.categories_count ? Count?.categories_count : 0}</div> */}
-                                </div>
-                                <div className="flex align-items-center justify-content-center bg-cyan-100 border-round" style={{ width: "2.5rem", height: "2.5rem" }}>
-                                    <i className="pi pi-inbox text-cyan-500 text-xl" />
-                                </div>
-                            </div>
-                        </div>
-                    {/* </Link> */}
                 </div>
             </div>
             <div className="card align-items-center justify-content-center flex mt-3" style={{height:'70vh'}}>

@@ -29,6 +29,9 @@ const User = () => {
     }, [isSuccess]);
 
     const usersList = usersListData?.users?.data?.data?.rows;
+    const usersLogin = useSelector((state)=>state);
+    console.log('usersLogin~~~~>',usersLogin)
+
 
 
     const gotoPrevious = () => {

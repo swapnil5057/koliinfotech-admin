@@ -8,6 +8,7 @@ import OurEmployeesReducer from "./Reducers/OurEmployeesReducer";
 import OurOpeningsReducer from "./Reducers/OurOpeningsReducer";
 import ContactUsReducer from "./Reducers/ContactUsReducer";
 import AppliedForJobReducer from "./Reducers/AppliedForJobReducer";
+import ForgotPassReducer from "./Reducers/ForgotPassReducer";
 
 const rootReducer = combineReducers({
     userDetails: usersReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     openingDetail: OurOpeningsReducer,
     contactDetail: ContactUsReducer,
     AppliedForJobDetail: AppliedForJobReducer,
+    forgotPassDetail:ForgotPassReducer,
 })
 
 export default rootReducer;

@@ -5,42 +5,41 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { changePassStart } from "../redux/Actions/forgotPassActions";
 import { resetPassStart } from "../redux/Actions/forgotPassActions";
-import { changePassStart } from "../redux/Actions/forgotPassActions";
 import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import bannerImage from '../assets/demo/Images/koli-logo.png'
+import { useParams } from 'react-router-dom';
 
-const ChangePassword = () => {
+const ResetPassword = () => {
     const [data, setData] = useState({
-        currentPassword: "",
         newPassword: "",
-        confirmPassword: ""
+        confirmPassword:""
     });
     const history = useHistory();
     const dispatch = useDispatch();
     const [submitted, setSubmitted] = useState(false);
     const [passwordError, setPasswordError] = useState("");
     const users = useSelector((state) => state?.data);
-    const ResetPassData = useSelector((state) => state?.forgotPassDetail)
-    console.log('ResetPassData~~~~~~~>', ResetPassData)
+    const ResetPassData = useSelector((state) => state)
     const isSucess = ResetPassData?.isSuccess;
     const isLoading = ResetPassData?.isLoading;
+    console.log('isSucess~~~~~>',ResetPassData)
+    // const token=localStorage.getItem('ADMIN');
+    const queryParameters = new URLSearchParams(window.location.search)
+    const token = queryParameters.get("token")
 
-    useEffect(() => {
-        if (isSucess) {
-            localStorage.clear();
-            history.push("/login");
-        }
-    }, [isSucess])
     useEffect(() => {
         if (users?.users?.status == 200) {
             window.location.reload();
         }
     })
+    useEffect(() => {
+        if (isSucess) {
+            history.push("/login");
+        }
+    }, [isSucess])
 
     const validatePassword = () => {
-        // Define your password validation criteria
         const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
         if (!data?.newPassword.match(passwordRegex)) {
             setPasswordError(
@@ -61,35 +60,26 @@ const ChangePassword = () => {
     };
 
     const handleSubmit = (e) => {
+        console.log('data~~~~~~>',data)
         e.preventDefault();
         setSubmitted(true);
         setData(data);
-        if (data.email != '' && data.newPassword != '' && data.currentPassword != '') {
-            dispatch(changePassStart(data));
+        if (data.email != '' && data.newPassword != '') {
+            dispatch(resetPassStart(data));
         }
     };
-
     return (
         <div className="flex justify-content-center border-round pt-8">
             <div className="card" style={{ width: '35rem' }}>
                 <div className="flex justify-content-center">
-                    <img src={bannerImage} alt="logo" style={{ width: "65%" }} />
+                    <img src="assets/layout/images/koli-logo.png" alt="logo" style={{ width: "65%" }} />
                 </div>
 
-                <h3 className="text-center mb-8">Change Password</h3>
+                <h3 className="text-center mb-8">Reset Password</h3>
                 <form onSubmit={handleSubmit} className="p-fluid">
                     <div className="formgrid grid">
                         <div className="field col">
-                            <label>Current Password</label>
-                        </div>
-                        <div className="field col">
-                            <Password className={classNames({ "p-invalid": submitted && !data.currentPassword || submitted && passwordError })} id="currentPassword" name="currentPassword" label="currentPassword" type="password" placeholder="Password" value={data.currentPassword} onChange={handleChange} toggleMask feedback={false} />
-                            {(submitted && !data.currentPassword && <small className="p-error">password is required.</small>) || (submitted && passwordError && <small className="p-error">{passwordError}.</small>)}
-                        </div>
-                    </div>
-                    <div className="formgrid grid">
-                        <div className="field col">
-                            <label>New Password</label>
+                            <label>Enter Password</label>
                         </div>
 
                         <div className="field col">
@@ -119,5 +109,6 @@ const ChangePassword = () => {
             </div>
         </div>
     );
-}
-export default ChangePassword;
+};
+
+export default ResetPassword;

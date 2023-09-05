@@ -116,7 +116,7 @@ const Register = () => {
 
     return (
         <div className="flex justify-content-center border-round pt-8">
-            <div className="card w-30rem ">
+            <div className="card" style={{ width: '35rem' }}>
                 <div className="flex justify-content-center">
                     <img src="assets/layout/images/koli-logo.png" alt="logo" style={{ width: "65%" }} />
                 </div>

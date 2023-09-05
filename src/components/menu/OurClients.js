@@ -18,9 +18,7 @@ const OurClients = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const dt = useRef(null);
-    // const [clientValue, setClientValue] = useState();
     const [clientValue, setClientValue] = useState();
-    // const [deleteUserDialog, setDeleteClientDialog] = useState(false);
     const [deleteClientDialog, setDeleteClientDialog] = useState(false);
     const [globalFilter, setGlobalFilter] = useState(null);
     const usersListData = useSelector((state) => state?.userDetails);
@@ -30,7 +28,6 @@ const OurClients = () => {
     const isLoading = ClientsListData?.isLoading;
 
     useEffect(() => {
-        // dispatch(loadUsersStart());
         dispatch(loadClintsStart());
     }, [isSuccess]);
 

@@ -10,9 +10,9 @@ const SingleEmployee = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    const SingleEmployee = useSelector((state) => state?.employeesDetail);
-    const SingleEmployeeData = SingleEmployee?.SingleEmployee?.employee
-    console.log('SingleEmployee~~~~~~~~>',SingleEmployee)
+    const SingleEmployeeSelector = useSelector((state) => state?.employeesDetail);
+    const SingleEmployeeData = SingleEmployeeSelector?.SingleEmployee?.employee
+    console.log('SingleEmployee~~~~~~~~>',SingleEmployeeData)
 
     useEffect(() => {
         dispatch(getSingleEmployeeStart(id));

@@ -58,7 +58,7 @@ const Login = () => {
     };
     return (
         <div className="flex justify-content-center border-round pt-8">
-            <div className="card w-30rem ">
+            <div className="card" style={{width:'35rem'}}>
                 <div className="flex justify-content-center">
                     <img src="assets/layout/images/koli-logo.png" alt="logo" style={{ width: "65%" }} />
                 </div>
@@ -107,9 +107,9 @@ const Login = () => {
                                 <p style={{ marginLeft: 5 }}>Sign Up</p>
                             </Link>
                         </div>
-                        <div className="field col" style={{ display: "flex" }}>
-                            <Link to="/changePassword">
-                                <p style={{ marginLeft: 5 }}>Forgot Password</p>
+                        <div className="field col " >
+                            <Link to="/ForgotPassword">
+                                <p style={{ float:"right" }}>Forgot Password</p>
                             </Link>
                         </div>
                     </div>

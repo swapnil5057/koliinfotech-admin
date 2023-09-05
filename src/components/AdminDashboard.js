@@ -15,6 +15,7 @@ import { AppTopbar } from "./AppTopbar";
 import { AppFooter } from "./AppFooter";
 import { AppMenu } from "./AppMenu";
 import Dashboard from "./Dashboard";
+import ChangePassword from "../pages/ChangePassword";
 // -----------------------------------List Page--------------------------------------------------
 import Users from "./menu/User";
 import OurServices from "./menu/OurServices";
@@ -149,7 +150,6 @@ const AdminDashboard = () => {
                 { label: "OUR OPENINGS", icon: "pi pi-fw pi-comments", to: "/admindashboard/ourOurOpenings-list" },
                 { label: "APPLIED FOR JOB", icon: "pi pi-fw pi-briefcase", to: "/admindashboard/AppliedForJob-list" },
                 { label: "CONTACT US PAGE", icon: "pi pi-fw pi-users", to: "/admindashboard/contactUs-list" },
-                // { label: "TTPM PDF", icon: "pi pi-fw pi-file-pdf", to: "/admindashboard/ttpmp-df-list" },
                 // {
                 //     label: "BANNERS",
                 //     icon: "pi pi-fw pi-images",
@@ -194,6 +194,7 @@ const AdminDashboard = () => {
             <div className="layout-main-container">
                 <div className="layout-main">
                     <Route path="/admindashboard" exact render={() => <Dashboard location={location} />} />
+                    <Route path="/admindashboard/ChangePassword" component={ChangePassword} />
                     {/* -----------------------------------List Page-------------------------------------------------- */}
                     <Route path="/admindashboard/users-list" component={Users} />
                     <Route path="/admindashboard/our-services-list" component={OurServices} />

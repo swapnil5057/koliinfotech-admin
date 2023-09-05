@@ -8,6 +8,7 @@ import OurEmployeessaga from "./OurEmployeessagas";
 import OurOpeningssaga from "./OurOpeningssagas";
 import ContactUssaga from "./ContactUssagas";
 import AppliedForJobsaga from "./AppliedForJobsagas";
+import ForgotPassSaga from "./ForgotPasssagas";
 
 export default function* rootSaga() {
     yield all([
@@ -20,5 +21,6 @@ export default function* rootSaga() {
         OurOpeningssaga(),
         ContactUssaga(),
         AppliedForJobsaga(),
+        ForgotPassSaga(),
     ]);
 }

@@ -11,7 +11,7 @@ const headersParam = {
 
 
 
-const baseUrl ='http://192.168.1.16:3000/api/';
+const baseUrl ='https://api-v1.koliinfotech.com/api/';
 
 export const loadClientsApi = async () => await axios.get(`${baseUrl}ourClient/getAll-ourClient`, { headers: headersParam });
 

@@ -13,15 +13,8 @@ const SingleAppliedForJob = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    // const Single = useSelector((state) => state);
-    // console.log('Single~~~~~>',Single)
-    const serviceSingle = useSelector((state) => state?.serviceData);
-    const serviceSingleData = serviceSingle?.SingleService?.ourServiceData;
-    const SingleContact = useSelector((state) => state?.contactDetail);
-    const SingleContactData = SingleContact?.SingleContact?.contactUs;
     const SingleApplied = useSelector((state) => state?.AppliedForJobDetail);
     const SingleAppliedData = SingleApplied?.SingleApplied?.ourapplyjob;
-    console.log('SingleApplied~~~~~>', SingleAppliedData)
 
     useEffect(() => {
         dispatch(getSingleContactStart(id));

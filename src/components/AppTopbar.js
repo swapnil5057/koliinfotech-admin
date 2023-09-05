@@ -33,16 +33,17 @@ export const AppTopbar = (props) => {
         setAnchorEl(null);
         localStorage.clear();
         history.push("/login");
-        // window.location.reload();
+    };
+    const handleReset = async (e) => {
+        e.preventDefault();
+        setAnchorEl(null);
+        history.push("/admindashboard/ChangePassword");
     };
 
     return (
         <div className="layout-topbar">
             <Link to="/admindashboard" className="layout-topbar-logo">
-                {/* <div style={{justifyContent:"space-between"}}> */}
-                <p style={{marginRight:'15px'}}><span style={{color:'blue'}}>KOLI</span> INFOTECH</p>
-                {/* <img src={"assets/layout/images/app_icon.png"} alt="logo" style={{ width: '20%' }} /> */}
-                {/* </div> */}
+                <p style={{ marginRight: '15px' }}><span style={{ color: '#0066b2', fontWeight: 'bold' }}>KOLI</span> INFOTECH</p>
             </Link>
             <button type="button" className="p-link  layout-menu-button layout-topbar-button" onClick={props.onToggleMenuClick}>
                 <i className="pi pi-bars" />
@@ -69,6 +70,7 @@ export const AppTopbar = (props) => {
                         TransitionComponent={Fade}
                     >
                         <MenuItem onClick={handleUserLogOut}>Logout</MenuItem>
+                        <MenuItem onClick={handleReset}>Reset Password</MenuItem>
                     </Menu>
                 </li>
             </ul>

@@ -13,7 +13,7 @@ const headersParam = {
 
 console.log("headersParam ----------------------", headersParam);
 
-const baseUrl ='http://192.168.1.16:3000/api/';
+const baseUrl ='https://api-v1.koliinfotech.com/api/';
 
 export const userRegisterApi = async (user) => await axios.post(`${baseUrl}user/create`, user, { headers: headersParam });
 

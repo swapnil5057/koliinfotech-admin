@@ -156,6 +156,7 @@ const AddUser = () => {
                     <div className="field">
                         <label htmlFor="name">Phone Number</label>
                         <InputText id="phone" value={user.phone} onChange={(e) => onInputChange(e, "phone")} className={classNames({ "p-invalid": submitted && !user.phone && !validatePhone(user.phone) })} required maxLength={10} minLength={10} />
+                        
                         {submitted && !user.phone && <small className="p-error">Contact Number is required</small> || submitted && !validatePhone(user.phone) && <small className="p-error">Enter Valid Contact Number</small>}
                     </div>
                     <div className="field">

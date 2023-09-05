@@ -22,13 +22,10 @@ const ContactUs = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const dt = useRef(null);
-    // const [ourService, setOurService] = useState(emptyContactFile);
     const [contactUs, setContactUs] = useState(emptyContactFile);
-    // const [deleteContactDialog, setDeleteContactDialog] = useState(false);
     const [deleteContactDialog, setDeleteContactDialog] = useState(false);
     const [globalFilter, setGlobalFilter] = useState(null);
     const [pageNo, setPageNo] = useState(1)
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     const ContactSelector = useSelector((state) => state?.contactDetail);
     const ContactUsData=ContactSelector?.contactUsList?.data?.data?.rows
     console.log('contact us~~~~~~~~~>',ContactUsData)

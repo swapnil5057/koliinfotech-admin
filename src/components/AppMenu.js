@@ -4,6 +4,8 @@ import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 import { Ripple } from "primereact/ripple";
 import { Badge } from 'primereact/badge';
+import CompanyLogo from '../assets/demo/Images/koli-logo.png'
+import image from '../assets/demo/Images/banner.jpg'
 
 const AppSubmenu = (props) => {
 
@@ -108,7 +110,7 @@ export const AppMenu = (props) => {
         <div className="layout-menu-container">
             <AppSubmenu items={props.model} className="layout-menu" onMenuItemClick={props.onMenuItemClick} root={true} role="menu" />
             <img alt="primeblocks" className="w-full"
-                src='assets/layout/images/koli-logo.png'
+                src={CompanyLogo}
                 style={{ marginTop: 10 }}
             />
         </div>
