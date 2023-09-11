@@ -18,19 +18,23 @@ const Login = () => {
     const dispatch = useDispatch();
     const [submitted, setSubmitted] = useState(false);
     const users = useSelector((state) => state?.data);
-    const loginData=useSelector((state) => state.userDetails)
-    console.log('loginData~~~~~~~>',loginData)
+    const loginData = useSelector((state) => state.userDetails)
     const isSucess = loginData?.isSuccess;
     const isLoading = loginData?.isLoading;
+    const forToken = useSelector((state) => state);
+    console.log('forToken~~~~~~~>', forToken)
+
+    // localStorage.setItem("ADMIN", Token);
+    // localStorage.setItem("ROLE", Role);
 
     useEffect(() => {
-        if(isSucess) {
+        if (isSucess) {
             history.push("/admindashboard")
             window.location.reload()
         }
-    },[isSucess])
-    useEffect(()=>{
-        if (users?.users?.status==200) {
+    }, [isSucess])
+    useEffect(() => {
+        if (users?.users?.status == 200) {
             window.location.reload();
         }
     })
@@ -52,13 +56,13 @@ const Login = () => {
         e.preventDefault();
         setSubmitted(true);
         setData(data);
-        if(data.email !='' && data.password !=''){
+        if (data.email != '' && data.password != '') {
             dispatch(adminLoginStart(data));
         }
     };
     return (
         <div className="flex justify-content-center border-round pt-8">
-            <div className="card" style={{width:'35rem'}}>
+            <div className="card" style={{ width: '35rem' }}>
                 <div className="flex justify-content-center">
                     <img src="assets/layout/images/koli-logo.png" alt="logo" style={{ width: "65%" }} />
                 </div>
@@ -109,7 +113,7 @@ const Login = () => {
                         </div>
                         <div className="field col " >
                             <Link to="/ForgotPassword">
-                                <p style={{ float:"right" }}>Forgot Password</p>
+                                <p style={{ float: "right" }}>Forgot Password</p>
                             </Link>
                         </div>
                     </div>

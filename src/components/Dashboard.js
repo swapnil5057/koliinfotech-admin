@@ -11,7 +11,8 @@ const Dashboard = (props) => {
     const [lineOptions, setLineOptions] = useState(null);
     const Employees = useSelector((state) => state?.employeesDetail?.OurEmployees?.data?.data?.count);
     const Clients = useSelector((state) => state?.clientDetail?.client?.data?.data?.count);
-    console.log('Dashboard Clients~~~~~~~~~>',Clients)
+    const login =useSelector((state)=>state);
+    console.log('Dashboard login~~~~~~~~~>',login)
 
     useEffect(() => {
         dispatch(loadOurEmployeesStart());

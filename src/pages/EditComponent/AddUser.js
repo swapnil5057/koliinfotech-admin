@@ -31,12 +31,12 @@ const AddUser = () => {
     const history = useHistory();
     var { id } = useParams();
     const formData = new FormData();
-    const usersData = useSelector((state) => state?.userDetails);
-    const createStatus = usersData?.users?.data?.status
+    const usersData = useSelector((state) => state);
+    console.log('usersData~~~~~>',usersData)
     const users = useSelector((state) => state?.userDetails);
     const usersList = users?.users?.data?.data?.rows
-    const isLoading = usersData?.isLoading;
-    const isSuccess = usersData?.isSuccess;
+    const isLoading = users?.isLoading;
+    const isSuccess = users?.isSuccess;
 
 
     const Gender = [

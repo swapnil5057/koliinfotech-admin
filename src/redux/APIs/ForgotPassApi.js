@@ -6,7 +6,7 @@ const headersParam = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     Authorization: `${token}`,
-    // Origin: "*",
+    Origin: "*",
 };
 const queryParameters = new URLSearchParams(window.location.search)
 const token1 = queryParameters.get("token")

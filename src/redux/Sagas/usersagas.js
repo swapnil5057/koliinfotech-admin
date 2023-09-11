@@ -103,7 +103,9 @@ export function* onAdminLoginStartAsync({ payload }) {
         console.log('login response~~~>',response)
         if (response?.status == 200) {
             const Token = response?.data?.data?.token
+            const Role = response?.data?.data?.role
             localStorage.setItem("ADMIN", Token);
+            localStorage.setItem("ROLE", Role);
             yield put(adminLoginSuccess(response));
             Toast.fire({
                 icon: "success",

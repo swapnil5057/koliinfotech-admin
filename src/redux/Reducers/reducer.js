@@ -1,7 +1,7 @@
 import * as types from "../ActionTypes/actionTypes";
 
 const initialState = {
-    userRegisterData:[],
+    userRegisterData: [],
     loginData: [],
     users: [],
     updateUser: [],
@@ -17,11 +17,11 @@ const usersReducer = (state = initialState, action) => {
         case types.COUNT_START:
         case types.LOAD_USERS_START:
         case types.UPDATE_USERS_START:
+            case types.ADMIN_LOGIN_START:
             return {
-                isSuccess: false,
                 isLoading: true,
+                isSuccess: false,
             };
-        case types.ADMIN_LOGIN_START:
         case types.DELETE_USERS_START:
         case types.GET_SINGLE_USERS_START:
         case types.LOAD_USERS_SUCCESS:
@@ -32,32 +32,33 @@ const usersReducer = (state = initialState, action) => {
                 isSuccess: false,
             };
         case types.COUNT_SUCCESS:
-                return {
-                    ...state,
-                    count:action.payload,
-                    isSuccess: false,
-                    isLoading: false,
-                };
+            return {
+                ...state,
+                count: action.payload,
+                isSuccess: false,
+                isLoading: false,
+            };
         case types.USER_REGISTER_SUCCESS:
             return {
                 ...state,
                 users: action.payload,
                 isSuccess: true,
-                isLoading:false
+                isLoading: false
             };
         case types.UPDATE_USERS_SUCCESS:
             return {
                 ...state,
                 updateUser: action.payload,
                 isSuccess: true,
-                isLoading:false
+                isLoading: false
             };
         case types.ADMIN_LOGIN_SUCCESS:
+            console.log('action.payload,~~~~~~~>',action.payload)
             return {
                 ...state,
-                // loginData: action.payload,
+                loginData: action.payload,
                 isSuccess: true,
-                isLoading:false,
+                isLoading: false,
             };
         case types.GET_SINGLE_USERS_SUCCESS:
             return {
@@ -78,6 +79,10 @@ const usersReducer = (state = initialState, action) => {
         case types.COUNT_ERROR:
         case types.DELETE_USERS_ERROR:
         case types.GET_SINGLE_USERS_ERROR:
+            return {
+                isLoading: false,
+                isSuccess: false,
+            };
         default:
             return state;
     }

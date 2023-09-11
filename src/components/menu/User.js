@@ -29,9 +29,11 @@ const User = () => {
     }, [isSuccess]);
 
     const usersList = usersListData?.users?.data?.data?.rows;
-    const usersLogin = useSelector((state)=>state);
-    console.log('usersLogin~~~~>',usersLogin)
+    const usersLogin = useSelector((state) => state);
+    console.log('usersLogin~~~~>', usersLogin)
 
+    const Role = localStorage.getItem('ROLE');
+    console.log('LOgin user role!~~~~>', Role)
 
 
     const gotoPrevious = () => {
@@ -55,12 +57,15 @@ const User = () => {
     };
 
     const leftToolbarTemplate = () => {
+
         return (
             <React.Fragment>
                 <div className="my-2">
-                    <Link to={`/addnew-user/`}>
-                        <Button label="New" icon="pi pi-plus" className="p-button-success mr-2" />
-                    </Link>
+                    {Role == 'Admin' ?
+                        <Link to={`/addnew-user/`}>
+                            <Button label="New" icon="pi pi-plus" className="p-button-success mr-2" />
+                        </Link> : null
+                    }
                 </div>
             </React.Fragment>
         );
@@ -137,7 +142,7 @@ const User = () => {
     return (
         <div className="grid crud-demo">
             <div className="col-12">
-                <div className="card" style={{ margin: "1%" }}>
+                <div className="card" >
                     <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}

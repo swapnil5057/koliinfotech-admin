@@ -13,6 +13,9 @@ export const AppTopbar = (props) => {
     const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+
+    const Role = localStorage.getItem('ROLE');
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -31,8 +34,9 @@ export const AppTopbar = (props) => {
     const handleUserLogOut = async (e) => {
         e.preventDefault();
         setAnchorEl(null);
-        localStorage.clear();
-        history.push("/login");
+        localStorage.removeItem('ADMIN');
+        localStorage.removeItem('ROLE');
+        window.location.href = "/login";
     };
     const handleReset = async (e) => {
         e.preventDefault();
@@ -55,6 +59,14 @@ export const AppTopbar = (props) => {
 
             <ul className={classNames("layout-topbar-menu lg:flex origin-top", { "layout-topbar-menu-mobile-active": props.mobileTopbarMenuActive })}>
                 <li>
+                    <span style={{backgroundColor:'skyBlue',padding:'10px',borderRadius:'40px'}}>
+                        {Role === 'Admin' ? <span style={{ fontWeight: 'bold', color: 'green' }}>
+                            {Role}
+                        </span> :
+                            <span style={{ fontWeight: 'bold' }}>
+                                {Role}
+                            </span>
+                        }</span>
                     <Button className="p-link layout-topbar-button" aria-controls={open ? "fade-menu" : undefined} aria-haspopup="true" aria-expanded={open ? "true" : undefined} onClick={handleClick}>
                         <i className="pi pi-user" />
                         <span>Profile</span>
@@ -70,7 +82,7 @@ export const AppTopbar = (props) => {
                         TransitionComponent={Fade}
                     >
                         <MenuItem onClick={handleUserLogOut}>Logout</MenuItem>
-                        <MenuItem onClick={handleReset}>Reset Password</MenuItem>
+                        <MenuItem onClick={handleReset}>Change Password</MenuItem>
                     </Menu>
                 </li>
             </ul>

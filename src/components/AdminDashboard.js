@@ -44,6 +44,7 @@ import AddEditOurTopBlog from "../pages/EditComponent/AddEditOurTopBlogs";
 import AddEditOurEmployee from "../pages/EditComponent/AddEditOurEmployee";
 import AddEditOuropenings from "../pages/EditComponent/AddEditOuropenings";
 import AppliedForJob from "./menu/AppliedForJob";
+import { useSelector } from "react-redux";
 
 const AdminDashboard = () => {
     const [layoutMode, setLayoutMode] = useState("static");
@@ -55,6 +56,9 @@ const AdminDashboard = () => {
     const location = useLocation();
     let menuClick = false;
     let mobileTopbarMenuClick = false;
+    // console.log("location~~~",location)
+    // const userLogin= useSelector((state)=>state?.userDetails    );
+    // console.log('admin dashboard userLogin~~>',userLogin)
 
     useEffect(() => {
         if (mobileMenuActive) {
@@ -133,7 +137,7 @@ const AdminDashboard = () => {
                 {
                     label: "DASHBOARD",
                     icon: "pi pi-fw pi-home",
-                    to: "/admindashboard",
+                    to: "/admindashboard/",
                 },
             ],
         },
@@ -143,7 +147,7 @@ const AdminDashboard = () => {
             items: [
                 { label: "USERS INFO", icon: "pi pi-fw pi-user-edit", to: "/admindashboard/users-list" },
                 { label: "OUR EMPLOYEES", icon: "pi pi-fw pi-users", to: "/admindashboard/OurEmployees-list" },
-                { label: "OUR CLIENTS", icon: "pi pi-fw pi-users", to: "/admindashboard/ourClients-list" },
+                { label: "OUR CLIENTS", icon: "pi pi-fw pi-heart", to: "/admindashboard/ourClients-list" },
                 { label: "OUR SERVICES", icon: "pi pi-fw pi-id-card", to: "/admindashboard/our-services-list" },
                 { label: "OUR PRODUCTS", icon: "pi pi-fw pi-inbox", to: "/admindashboard/our-products-list" },
                 { label: "OUR TOP BLOGS", icon: "pi pi-fw pi-list", to: "/admindashboard/ourOurTopBlogs-list" },
@@ -210,7 +214,7 @@ const AdminDashboard = () => {
                     <Route path="/serviceSingle/:id/" component={SingleService} />
                     <Route path="/productSingle/:id/" component={SingleProduct} />
                     <Route path="/singleClient/:id/" component={SingleClient} />
-                    <Route path="/singleBlog/:id/" component={SingleBlog} />
+                    <Route path="/SingleBlog/:id/" component={SingleBlog} />
                     <Route path="/singleEmployee/:id/" component={SingleEmployee} />
                     <Route path="/SingleOpening/:id/" component={SingleOpening} />
                     <Route path="/SingleContact/:id/" component={SingleContact} />

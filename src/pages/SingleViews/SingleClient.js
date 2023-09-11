@@ -13,7 +13,7 @@ const SingleClient = () => {
     const { id } = useParams();
     // const singleClient = useSelector((state) => state);
     const singleClient = useSelector((state) => state?.clientDetail);
-    const singleClientdata = singleClient?.singleClient?.ourClientData
+    const singleClientdata = singleClient?.singleClient?.ourClientData;
     console.log("single client data~~~>",singleClientdata)
     const singleuserdata = useSelector((state) => state?.userDetails?.singleUser?.userData);
     useEffect(() => {

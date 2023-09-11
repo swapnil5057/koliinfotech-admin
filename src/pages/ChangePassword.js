@@ -109,9 +109,17 @@ const ChangePassword = () => {
                         </div>
                     </div>
 
-                    <div className="formgrid grid">
+                    {/* <div className="formgrid grid">
                         <div className="field col">
                             <Button label="Submit" loading={isLoading} icon="pi pi-check" className="p-button-success mr-2 mb-2" />
+                        </div>
+                    </div> */}
+                    <div className="formgrid grid mt-3">
+                        <div className="field col">
+                            <Button label="Apply" icon="pi pi-check" loading={isLoading} className="p-button-success mr-2 mb-2" />
+                        </div>
+                        <div className="field">
+                            <Button label="Cancel" onClick={() => history.goBack()} icon="pi pi-times" className="p-button-danger mr-2 mb-2" />
                         </div>
                     </div>
 

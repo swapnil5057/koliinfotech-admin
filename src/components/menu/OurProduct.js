@@ -145,7 +145,7 @@ const OurProducts = () => {
     return (
         <div className="grid crud-demo">
             <div className="col-12">
-                <div className="card" style={{ margin: "1%" }}>
+                <div className="card" >
                     <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}

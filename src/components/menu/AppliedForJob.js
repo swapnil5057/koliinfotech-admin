@@ -125,7 +125,7 @@ const AppliedForJob = () => {
     return (
         <div className="grid crud-demo">
             <div className="col-12">
-                <div className="card" style={{ margin: "1%" }}>
+                <div className="card" >
                     <Toolbar className="mb-4"  right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}
@@ -148,8 +148,8 @@ const AppliedForJob = () => {
                         <Column field="email" header="Email Add" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
                         <Column field="phone" header="Location" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
                         <Column field="current_location" header="Phone No." sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
-                        <Column field="experience" header="Experience" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
-                        <Column field="skills" header="Skills" sortable headerStyle={{ width: "10%", minWidth: "20rem" }}></Column>
+                        <Column field="experience" header="Experience" sortable headerStyle={{ width: "5%", minWidth: "5rem" }}></Column>
+                        <Column field="skills" header="Skills" sortable headerStyle={{ width: "10%", minWidth: "15rem" }}></Column>
                         <Column body={actionBodyTemplate}></Column>
                     </DataTable>
                     <Dialog visible={deleteAplliedJobDialog} style={{ width: "450px" }} header="Confirm" modal footer={deleteMediaFileDialogFooter} onHide={hideDeleteAplliedJobDialog}>

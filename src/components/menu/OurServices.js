@@ -91,7 +91,7 @@ const OurServices = () => {
         return (
             <>
                 <span className="p-column-title">Image</span>
-                <img width={"50"} src={`${rowData.image}`} alt={rowData?.content} />
+                <img width={"50"} src={`${rowData.icon}`} alt={rowData?.content} />
             </>
         )
     }
@@ -147,7 +147,7 @@ const OurServices = () => {
     return (
         <div className="grid crud-demo">
             <div className="col-12">
-                <div className="card" style={{ margin: "1%" }}>
+                <div className="card" >
                     <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}

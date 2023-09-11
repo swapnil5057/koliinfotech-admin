@@ -7,7 +7,7 @@ const headersParam = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     Authorization: `${token}`,
-    // Origin: "*",
+    Origin: "*",
 };
 
 

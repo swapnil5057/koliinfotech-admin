@@ -20,10 +20,11 @@ const ResetPassword = () => {
     const [submitted, setSubmitted] = useState(false);
     const [passwordError, setPasswordError] = useState("");
     const users = useSelector((state) => state?.data);
-    const ResetPassData = useSelector((state) => state)
+    const ResetPassData = useSelector((state) => state?.forgotPassDetail)
     const isSucess = ResetPassData?.isSuccess;
     const isLoading = ResetPassData?.isLoading;
-    console.log('isSucess~~~~~>',ResetPassData)
+    console.log('ResetPassData~~~~~>',ResetPassData)
+    console.log('isSucess~~~~~>',isSucess)
     // const token=localStorage.getItem('ADMIN');
     const queryParameters = new URLSearchParams(window.location.search)
     const token = queryParameters.get("token")

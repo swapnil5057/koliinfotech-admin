@@ -48,7 +48,7 @@ const SingleEmployee = () => {
             <ul className="list-none p-0 m-0">
                 <li className="flex align-items-center py-5 px-8 border-top-1 surface-border flex-wrap">
                     <div className="text-500 text-2xl w-6 md:w-3 font-medium">Title</div>
-                    <div className="text-800 text-xl w-full md:w-8 md:flex-order-0 flex-order-1">{SingleEmployeeData?.firstName} {SingleEmployeeData.lastName}</div>
+                    <div className="text-800 text-xl w-full md:w-8 md:flex-order-0 flex-order-1">{SingleEmployeeData?.firstName} {SingleEmployeeData?.lastName}</div>
                 </li>
                 <li className="flex align-items-center py-5 px-8 border-top-1 surface-border flex-wrap">
                     <div className="text-500 text-2xl w-6 md:w-3 font-medium">Profile Picture</div>

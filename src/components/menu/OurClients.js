@@ -8,7 +8,7 @@ import { InputText } from "primereact/inputtext";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { loadUsersStart, deleteUsersStart } from "../../redux/Actions/actions";
-import { loadClintsStart,deleteClientStart } from "../../redux/Actions/OurClintsActions";
+import { loadClintsStart, deleteClientStart } from "../../redux/Actions/OurClintsActions";
 import { Link } from "react-router-dom";
 import { ToggleButton } from "primereact/togglebutton";
 
@@ -94,7 +94,7 @@ const OurClients = () => {
         return (
             <>
                 <span className="p-column-title">Image</span>
-                <img width={"50"} src={`${baseUrl}${rowData.profile_image}`} alt={"frame"} />
+                <img width={"50"} src={rowData.profilePicture} alt={"frame"} />
             </>
         );
     };
@@ -137,7 +137,7 @@ const OurClients = () => {
     return (
         <div className="grid crud-demo">
             <div className="col-12">
-                <div className="card" style={{ margin: "1%" }}>
+                <div className="card" >
                     <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}
@@ -159,7 +159,8 @@ const OurClients = () => {
                         <Column style={{ display: "none" }} field="uniqueId" header="UNIQUEID" sortable headerStyle={{ width: "10%", minWidth: "10rem" }}></Column>
                         <Column field="name" header="Client's Name" sortable headerStyle={{ width: "14%", minWidth: "10rem" }}></Column>
                         {/* <Column field="profilePicture" header="Profile image" sortable headerStyle={{ width: "14%", minWidth: "10rem" }}></Column> */}
-                        <Column field="profilePicture" header="Profile image" alt='image' body={imageBodyTemplate} headerStyle={{ width: "10%", minWidth: "20rem" }}></Column>
+                        {/* <Column field="profilePicture" header="Profile image" alt='image' body={imageBodyTemplate} headerStyle={{ width: "10%", minWidth: "20rem" }}></Column> */}
+                        <Column field="profilePicture" header="Image" alt='image' body={imageBodyTemplate} headerStyle={{ width: "10%", minWidth: "15rem" }}></Column>
                         <Column field="review" header="Review" sortable headerStyle={{ width: "35%", minWidth: "15rem" }}></Column>
                         <Column body={actionBodyTemplate}></Column>
 

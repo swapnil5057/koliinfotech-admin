@@ -101,7 +101,7 @@ const OurTopBlogs = () => {
                 <Link to={`/update-our-blog/${rowData.id}`}>
                     <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mt-2 mr-2" />
                 </Link>
-                <Link to={`/singleBlog/${rowData.id}`}>
+                <Link to={`/SingleBlog/${rowData.id}`}>
                     <Button icon="pi pi-info-circle" className="p-button-rounded p-button-info mt-2 mr-2" />
                 </Link>
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mt-2 mr-2" onClick={() => confirmDeleteService(rowData)} />
@@ -146,7 +146,7 @@ const OurTopBlogs = () => {
     return (
         <div className="grid crud-demo">
             <div className="col-12">
-                <div className="card" style={{ margin: "1%" }}>
+                <div className="card" >
                     <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}

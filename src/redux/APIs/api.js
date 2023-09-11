@@ -7,13 +7,15 @@ const headersParam = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     Authorization: `${token}`,
-    // Origin: "*",
+    
+    Origin: "*",
 };
 
 
 console.log("headersParam ----------------------", headersParam);
 
-const baseUrl ='https://api-v1.koliinfotech.com/api/';
+// const baseUrl ='https://api-v1.koliinfotech.com/api/';
+const baseUrl ='http://192.168.1.12:3000/api/';
 
 export const userRegisterApi = async (user) => await axios.post(`${baseUrl}user/create`, user, { headers: headersParam });
 

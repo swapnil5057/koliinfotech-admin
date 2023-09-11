@@ -93,7 +93,7 @@ const OurEmployees = () => {
         return (
             <>
                 <span className="p-column-title">Image</span>
-                <img width={"50"} src={`${baseUrl}${rowData.profile_image}`} alt={"frame"} />
+                <img width={"50"} src={rowData.image} alt={"frame"} />
             </>
         );
     };
@@ -136,7 +136,7 @@ const OurEmployees = () => {
     return (
         <div className="grid crud-demo">
             <div className="col-12">
-                <div className="card" style={{ margin: "1%" }}>
+                <div className="card">
                     <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
                     <DataTable
                         ref={dt}

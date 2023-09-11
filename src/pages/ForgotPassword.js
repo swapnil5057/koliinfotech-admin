@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames';
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,6 +49,12 @@ const ForgotPassword = () => {
     //     console.log("first~~~~~~~~~", users)
     // }
 
+    useEffect(() => {
+        if (isSuccess) {
+                history.push('/login');
+            }
+    })
+    
     // if (users?.success === true) {
     //     history.push('/admindashboard');
     // }

@@ -10,8 +10,10 @@ const SingleBlog = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
+    console.log('single blog id~~~~~>',id)
     const SingleBlog = useSelector((state) => state?.blogsDetail);
     const singleBlogData=SingleBlog?.SingleBlog?.ourBlogData
+    console.log('singleBlogData~~~~>',singleBlogData)
     const isLoading = SingleBlog?.isLoading;
 
     useEffect(() => {
